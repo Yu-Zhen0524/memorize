@@ -16,9 +16,9 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		3F6A42722F67F746006765EE /* memorise */ = {
+		3F6A42722F67F746006765EE /* memorize */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = memorise;
+			path = memorize;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,7 +37,7 @@
 		3F6A42672F67F745006765EE = {
 			isa = PBXGroup;
 			children = (
-				3F6A42722F67F746006765EE /* memorise */,
+				3F6A42722F67F746006765EE /* memorize */,
 				3F6A42712F67F746006765EE /* Products */,
 				3F6A42802F68086D006765EE /* README.md */,
 			);
@@ -67,7 +67,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				3F6A42722F67F746006765EE /* memorise */,
+				3F6A42722F67F746006765EE /* memorize */,
 			);
 			name = memorise;
 			packageProductDependencies = (
@@ -91,7 +91,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3F6A426B2F67F745006765EE /* Build configuration list for PBXProject "memorise" */;
+			buildConfigurationList = 3F6A426B2F67F745006765EE /* Build configuration list for PBXProject "memorize" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -316,7 +316,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3F6A426B2F67F745006765EE /* Build configuration list for PBXProject "memorise" */ = {
+		3F6A426B2F67F745006765EE /* Build configuration list for PBXProject "memorize" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3F6A42792F67F746006765EE /* Debug */,
