@@ -29,48 +29,59 @@ struct ContentView: View {
             }
             
             HStack {
-                Button(action: {
-                    emojiCount -= 1
-                }, label: {
-                    Text("Remove Card")
-                })
-                       
+                remove
                 Spacer()
-            
-                Button(action: {
-                    emojiCount += 1
-                }, label: {
-                    Text("Add Card")
-                })
-                              
+                add
             }
+            .font(.largeTitle)
         }
         .foregroundStyle(.orange)
         .padding()
-}
-
-struct CardView: View {
-    @State var isFaceUp: Bool = true
-    var content: String
-    var body: some View {
-        ZStack {
-            //var shape: RoundedRectangle = RoundedRectangle(cornerRadius: 20)
-            let shape = RoundedRectangle(cornerRadius: 20)
-            //var shape = Circle()
-            
-            if isFaceUp {
-                shape.fill(.white)
-                shape.strokeBorder(lineWidth: 3)
-                Text(content).font(.largeTitle)
-            } else {
-                shape
-            }
-            
-        }
-        .onTapGesture(perform: {
-            isFaceUp = !isFaceUp
-        })
     }
+    
+    var remove: some View {
+        Button {
+            if emojiCount > 1 {
+                emojiCount -= 1
+            }
+        } label: {
+            Image(systemName: "minus.circle")
+        }
+    }
+    
+    var add: some View {
+        Button {
+            if emojiCount < emojis.count {
+                emojiCount += 1
+            }
+            emojiCount += 1
+        } label: {
+            Image(systemName: "plus.circle")
+        }
+    }
+    
+    struct CardView: View {
+        @State var isFaceUp: Bool = true
+        var content: String
+        var body: some View {
+            ZStack {
+                //var shape: RoundedRectangle = RoundedRectangle(cornerRadius: 20)
+                let shape = RoundedRectangle(cornerRadius: 20)
+                //var shape = Circle()
+                
+                if isFaceUp {
+                    shape.fill(.white)
+                    shape.strokeBorder(lineWidth: 3)
+                    Text(content).font(.largeTitle)
+                } else {
+                    shape
+                }
+                
+            }
+            .onTapGesture(perform: {
+                isFaceUp = !isFaceUp
+            })
+        }
     }
 }
 
