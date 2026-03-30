@@ -15,7 +15,7 @@ struct ContentView: View {
     
     //var emojis: Array<String> = ["A","B","C","D"]
     //var emojis: [String] = ["A","B","C","D"]
-    var emojis = ["鼠","牛","虎","B","C","D","E","F","G","H","I","J","K","L","M","N"]
+    var emojis = ["鼠","牛","虎","兔","龍","蛇","馬","羊","猴","雞","狗","豬","A","B","C","D","E","F","G","H","I","J","K","L","M","N"]
     
     @State var emojiCount: Int = 6
     
