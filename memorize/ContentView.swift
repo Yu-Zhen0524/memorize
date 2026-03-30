@@ -15,28 +15,41 @@ struct ContentView: View {
     
     //var emojis: Array<String> = ["A","B","C","D"]
     //var emojis: [String] = ["A","B","C","D"]
-    var emojis = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"]
+    var emojis = ["鼠","牛","虎","B","C","D","E","F","G","H","I","J","K","L","M","N"]
     
     @State var emojiCount: Int = 6
     
     
     var body: some View {
         VStack {
-            HStack {
-                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
-                    CardView(content:emoji)
-                }
-            }
+            cardList
+            Spacer()
+            actionButtons
             
-            HStack {
-                remove
-                Spacer()
-                add
-            }
-            .font(.largeTitle)
         }
         .foregroundStyle(.orange)
         .padding()
+    }
+    
+    var cardList: some View {
+        ScrollView {
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 85), spacing: 0)], spacing: 0) {
+                ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
+                    CardView(content:emoji)
+                        .aspectRatio(2/3, contentMode: .fit)
+                        .padding(4)
+                }
+            }
+        }
+    }
+    
+    var actionButtons: some View {
+        HStack {
+            remove
+            Spacer()
+            add
+        }
+        .font(.largeTitle)
     }
     
     var remove: some View {
@@ -54,7 +67,6 @@ struct ContentView: View {
             if emojiCount < emojis.count {
                 emojiCount += 1
             }
-            emojiCount += 1
         } label: {
             Image(systemName: "plus.circle")
         }
@@ -69,13 +81,17 @@ struct ContentView: View {
                 let shape = RoundedRectangle(cornerRadius: 20)
                 //var shape = Circle()
                 
-                if isFaceUp {
+                Group {
                     shape.fill(.white)
                     shape.strokeBorder(lineWidth: 3)
-                    Text(content).font(.largeTitle)
-                } else {
-                    shape
+                    Text(content)
+                        .font(Font.system(size: 300))
+                        .minimumScaleFactor(0.01)
+                        .aspectRatio(1, contentMode: .fit)
                 }
+                .opacity(isFaceUp ? 1 : 0)
+                
+                shape.opacity(isFaceUp ? 0 : 1)
                 
             }
             .onTapGesture(perform: {
